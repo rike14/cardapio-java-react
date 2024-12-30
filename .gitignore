@@ -1,0 +1,59 @@
+java-backend/HELP.md
+java-backend/target/
+java-backend/!.mvn/wrapper/maven-wrapper.jar
+java-backend/!**/src/main/**/target/
+java-backend/!**/src/test/**/target/
+
+### STS ###
+java-backend/.apt_generated
+java-backend/.classpath
+java-backend/.factorypath
+java-backend/.project
+java-backend/.settings
+java-backend/.springBeans
+java-backend/.sts4-cache
+
+### IntelliJ IDEA ###
+java-backend/.idea
+java-backend/*.iws
+java-backend/*.iml
+java-backend/*.ipr
+
+### NetBeans ###
+java-backend/nbproject/private/
+java-backend/nbbuild/
+java-backend//dist/
+java-backend//nbdist/
+java-backend//.nb-gradle/
+java-backend/build/
+java-backend/!**/src/main/**/build/
+java-backend/!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Logs
+react-frontend/logs
+react-frontend/*.log
+react-frontend/npm-debug.log*
+react-frontend/yarn-debug.log*
+react-frontend/yarn-error.log*
+react-frontend/pnpm-debug.log*
+react-frontend/lerna-debug.log*
+
+react-frontend/node_modules
+react-frontend/dist
+react-frontend/dist-ssr
+react-frontend/*.local
+
+# Editor directories and files
+.vscode/*
+react-frontend/!.vscode/extensions.json
+react-frontend/.idea
+react-frontend/.DS_Store
+react-frontend/*.suo
+react-frontend/*.ntvs*
+react-frontend/*.njsproj
+react-frontend/*.sln
+react-frontend/*.sw?
+
