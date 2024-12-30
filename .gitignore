@@ -40,6 +40,9 @@ react-frontend/yarn-debug.log*
 react-frontend/yarn-error.log*
 react-frontend/pnpm-debug.log*
 react-frontend/lerna-debug.log*
+react-frontend/package-lock.json
+react-frontend/yarn.lock
+
 
 react-frontend/node_modules
 react-frontend/dist
