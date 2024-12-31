@@ -1,12 +1,27 @@
+import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import { Card } from './components/card/card';
+import { Modal } from './components/card/modal/modal';
 import { useProductData } from './hooks/useProductData';
 
 function App() {
   const { data } = useProductData();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(prev => !prev);
+  }
 
   return (
     <div className="container">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        newestOnTop={false}
+        pauseOnHover
+        theme="dark"
+      />
       <h1>Cardápio Digital</h1>
       <div className="card-grid">
         {data?.map(
@@ -17,31 +32,8 @@ function App() {
             image={productData.image}
             price={productData.price}
           />)}
-        <Card 
-          title="Desserts"
-          image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          price={5}
-        />
-        <Card 
-          title="Desserts"
-          image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          price={5}
-        />
-        <Card 
-          title="Desserts"
-          image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          price={5}
-        />
-        <Card 
-          title="Desserts"
-          image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          price={5}
-        />
-        <Card 
-          title="Desserts"
-          image="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          price={5}
-        />
+        {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} />}
+        <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>
       </div>
     </div>
   )

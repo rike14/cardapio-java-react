@@ -12,7 +12,7 @@
     gap: 16px;
 }
 
-.container button {
+.container .btn-open-modal {
     background-color: #0275d8;
     color: white;
     font-weight: bold;
@@ -22,7 +22,8 @@
     transition: all 0.1s linear 0.1s;
 }
 
-.container button:hover {
+.container .btn-open-modal:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+    background-color: #3a44f8;
     transform: scale(1.1);
 }
