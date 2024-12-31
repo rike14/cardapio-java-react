@@ -60,3 +60,4 @@ react-frontend/*.njsproj
 react-frontend/*.sln
 react-frontend/*.sw?
 
+.idea
