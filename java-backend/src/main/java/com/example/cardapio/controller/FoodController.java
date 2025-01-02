@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("food")
+@RequestMapping("products")
 public class FoodController {
 
     @Autowired
@@ -24,6 +24,7 @@ public class FoodController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll(){
         return repository.findAll().stream().map(FoodResponseDTO::new).toList();
