@@ -9,6 +9,12 @@
     padding: 0;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
 .card img {
     width: 250px;
     height: 200px;

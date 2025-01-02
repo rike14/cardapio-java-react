@@ -19,10 +19,11 @@ function App() {
         position="top-right"
         autoClose={5000}
         newestOnTop={false}
+        pauseOnFocusLoss={false}
         pauseOnHover
         theme="dark"
       />
-      <h1>Cardápio Digital</h1>
+      <h1>Digital Menu</h1>
       <div className="card-grid">
         {data?.map(
           productData => 
