@@ -4,14 +4,14 @@ import { ProductData } from '../interface/ProductData';
 
 const API_URL = 'http://localhost:8080';
 
-const fetchData = async (): AxiosPromise<ProductData[]> => {
-    const response = axios.get(API_URL + '/food');
+const fetchData = async (): AxiosPromise<ProductData[]> => { 
+    const response = await axios.get(`${API_URL}/product`);
     return response;
 }
 export function useProductData(){
     const query = useQuery({
         queryFn: fetchData,
-        queryKey: ['productData'],
+        queryKey: ['product-data'],
         retry: 2
     })
     return {
