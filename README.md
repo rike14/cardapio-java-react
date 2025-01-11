@@ -124,15 +124,31 @@ To get a local copy up and running follow these simple example steps.
 
     <br>
 
-  *After running the backend, the product table is created automatically if it doesn't exist. You can see it in Adminer as shown in the image below.*
+  *After running the backend, the product table is created automatically if it doesn't exist. You can see it in Pgadmin Painel as shown in the image below.*
     
-  * Adminer login
+  * Pgadmin login
 
-    <img width="100%" src="./.github/images-backend/adminer-login.png">
+    <img width="100%" src="./.github/images-backend/pgadmin-login.png">
 
-  * Adminer database
+  * Pgadmin database
 
-    <img width="100%" src="./.github/images-backend/adminer-database.png">
+    <img width="100%" src="./.github/images-backend/pgadmin-painel.png">
+  
+  * Pgadmin steps to create connection with database
+  
+    <img width="100%" src="./.github/images-backend/pgadmin-db-1.png">
+
+    <br>
+    
+    <img width="100%" src="./.github/images-backend/pgadmin-db-2.png">
+
+    <br>
+
+    <img width="100%" src="./.github/images-backend/pgadmin-db-3.png">
+
+    <br>
+
+    <img width="100%" src="./.github/images-backend/pgadmin-db-4.png">
 
     
   
