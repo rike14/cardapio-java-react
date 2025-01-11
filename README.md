@@ -33,6 +33,7 @@
 - Digital Menu Home Page;
 - Add a new product;
 - Toasts and notifications;
+- Backend and database run in container with Docker.
 
 ## Next steps to do in the project:
 - Login;
@@ -48,6 +49,7 @@
 * [![Java][Java]][Java-url]
 * [![SpringBoot][SpringBoot]][SpringBoot-url]
 * [![Postgres][Postgres]][Postgres-url]
+* [![Docker][Docker]][Docker-url]
 * [![Node][Node]][Node-url]
 * [![React][React]][React-url]
 * [![Typescript][Typescript]][Typescript-url]
@@ -64,14 +66,13 @@ To get a local copy up and running follow these simple example steps.
 
 ## <h2 id="pre-requisites">🛠️ Requisites</h2>
 
-* java <br>
+* Java <br>
     [Download Java and see the documentation how to install](https://www.java.com/en/)
 
-* postgres <br>
-    [Download Postgres](https://www.postgresql.org/download/)
-    [Documentation Postgres](https://www.postgresql.org/docs/)
+* Docker <br>
+    [Download Docker and see the documentation how to install and start](https://docs.docker.com/desktop/install/windows-install/)
 
-* node <br>
+* Node JS<br>
     [Download and install Node](https://nodejs.org/en/download)
 
 
@@ -90,20 +91,50 @@ To get a local copy up and running follow these simple example steps.
 
 2. Run backend
 
-     * PostgreSQL: <br>
-      *Create a new PostgreSQL database with the name of cardapio then...*
-
      ```sh
        cd java-backend/
      ```
 
+    * docker
+    ```sh
+      # for the first time or every time do you change the docker-compose.yml file do you need run this command, wait build the image and volume stop the terminal/cmd with ctrl+c command
+      docker compose up 
+
+      # after run the command docker compose up, then only run the command below to start container
+      docker compose start
+
+      # to access adminer on http:localhost:8081 with email and password do you set on docker-compose.yml
+      # POSTGRES_USER: postgres
+      # POSTGRES_PASSWORD: master
+      # POSTGRES_DB: menu
+      
+      # then you register a server name what you want, on the tab 'Connection' do you need put on 'Host name/address': db then save like image below
+
+      # command stop de container if you needed
+      docker compose stop
+    ```
+
     Now, inside IntelliJ, we will install the dependencies with Maven
 
-     <img width="300px" src="./.github/images-backend/package-maven.png">
+     <img width="100%" src="./.github/images-backend/package-maven.png">
 
-     And finally, enter the `CardapioApllication` class file to run the project.
+    And finally, enter the `CardapioApllication` class file to run the project.
 
-     <img width="300px" src="./.github/images-backend/play-backend.png">
+     <img width="100%" src="./.github/images-backend/play-backend.png">
+
+    <br>
+
+  *After running the backend, the product table is created automatically if it doesn't exist. You can see it in Adminer as shown in the image below.*
+    
+  * Adminer login
+
+    <img width="100%" src="./.github/images-backend/adminer-login.png">
+
+  * Adminer database
+
+    <img width="100%" src="./.github/images-backend/adminer-database.png">
+
+    
   
 <br>
 
@@ -194,5 +225,7 @@ Made with ❤️ by Henrique M. Kronhardt 👋🏽 [Get in touch!](https://www.l
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Postgres]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
 [Postgres-url]: https://www.postgresql.org/
+[Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
 [Node]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [Node-url]: https://nodejs.org
