@@ -1,4 +1,5 @@
 java-backend/HELP.md
+java-backend/.env
 java-backend/target/
 java-backend/!.mvn/wrapper/maven-wrapper.jar
 java-backend/!**/src/main/**/target/
@@ -28,6 +29,7 @@ java-backend//.nb-gradle/
 java-backend/build/
 java-backend/!**/src/main/**/build/
 java-backend/!**/src/test/**/build/
+
 
 ### VS Code ###
 .vscode/
