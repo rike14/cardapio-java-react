@@ -30,16 +30,16 @@
 
 ## <h2 id="about">📃 About The Project </h2>
 
-- Digital Menu Home Page;
+- Digital Menu home page;
 - Add a new product;
-- Toasts and notifications;
-- Backend and database run in container with Docker.
+- Notifications using Toasty;
+- Database running in container with Docker.
 
 ## Next steps to do in the project:
 - Login;
 - User only read information if not logged in;
-- Edit existing product;
-- Delete existing product;
+- Edit existing product information if the user is logged in;
+- Delete existing product if the user is logged in;
 - Loading.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
