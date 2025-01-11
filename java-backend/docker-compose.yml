@@ -1,0 +1,29 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: ${MENU_DATABASE_USER}
+      POSTGRES_PASSWORD: ${MENU_DATABASE_PASSWORD}
+      POSTGRES_DB: ${MENU_DATABASE_NAME}
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+
+volumes:
+    pgadmin:
+    db:
