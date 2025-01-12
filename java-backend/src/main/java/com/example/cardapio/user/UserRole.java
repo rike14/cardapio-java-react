@@ -2,7 +2,6 @@ package com.example.cardapio.user;
 
 public enum UserRole {
     ADMIN("admin"),
-
     USER("user");
 
     private String role;
