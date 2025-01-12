@@ -31,7 +31,7 @@ export function Modal({ closeModal }: ModalProps) {
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [price, setPrice] = useState<number | string>('');
-    const { mutate, isSuccess } = useProductDataMutate();
+    const { mutate, isSuccess, isPending } = useProductDataMutate();
     const [isLoading, setIsLoading] = useState(false);
 
     const submit = () => {
@@ -51,13 +51,13 @@ export function Modal({ closeModal }: ModalProps) {
     }
 
     useEffect(() => {
-        setIsLoading(false);
+        if(isPending) return
         if(Number(price) <= 0) {
             setPrice('');
         }
-        if(!isSuccess) return 
+        if(!isSuccess) return
         closeModal();
-    }, [isSuccess, closeModal, price])
+    }, [isSuccess, closeModal, price, isPending])
 
     return (
         <div className="modal-overlay">
@@ -69,7 +69,7 @@ export function Modal({ closeModal }: ModalProps) {
                     <Input label="Image URL" value={image} onChange={setImage} />
                     <Input label="Price" value={price ?? ''} onChange={setPrice} />
                 </form>
-                <button onClick={submit} disabled={isLoading} className="btn-secondary">
+                <button onClick={submit} disabled={isPending} className="btn-secondary">
                     {isLoading ? 'Saving...' : 'Save'}
                 </button>
             </div>
