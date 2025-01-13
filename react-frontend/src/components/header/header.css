@@ -16,18 +16,3 @@
     cursor: pointer;
     border-bottom: 1px solid #666;
 }
-
-.btn-login {
-    background-color: #0275d8;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 20px;
-    transition: all 0.1s linear 0.1s;
-}
-
-.btn-login:hover {
-    background-color: #01579b;
-}
