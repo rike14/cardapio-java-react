@@ -47,6 +47,7 @@ react-frontend/yarn.lock
 
 
 react-frontend/node_modules
+react-frontend/.env
 react-frontend/dist
 react-frontend/dist-ssr
 react-frontend/*.local
