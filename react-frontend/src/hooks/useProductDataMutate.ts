@@ -3,8 +3,10 @@ import axios, { AxiosPromise } from 'axios';
 import { toast } from 'react-toastify';
 import { ProductData } from '../interface/ProductData';
 
+const API_URL= import.meta.env.VITE_API_BASE_URL
+
 const postData = async (data: ProductData): AxiosPromise<any> => {
-    const response = await axios.post(`${process.env.API_URL}/product`, data);
+    const response = await axios.post(`${API_URL}/product`, data);
     return response;
 }
 export function useProductDataMutate(){
