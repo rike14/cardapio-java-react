@@ -16,7 +16,6 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveProduct(@RequestBody ProductRequestDTO data){
         Product productData = new Product(data);
@@ -24,7 +23,6 @@ public class ProductController {
         return;
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<ProductResponseDTO> getAll(){
         return repository.findAll().stream().map(ProductResponseDTO::new).toList();
