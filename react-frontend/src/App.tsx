@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
 import './App.css';
 import { Card } from './components/card/card';
 import { Modal } from './components/card/modal/modal';
 import { useProductData } from './hooks/useProductData';
 
-function App() {
+export function App() {
   const { data } = useProductData();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const token = useState(localStorage.getItem('token'));
+  const type = useState(localStorage.getItem('type'));
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev);
@@ -15,15 +16,8 @@ function App() {
 
   return (
     <div className="container">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        newestOnTop={false}
-        pauseOnFocusLoss={false}
-        pauseOnHover
-        theme="dark"
-      />
       <h1>Digital Menu</h1>
+      {data?.length === 0 && <h2>No products available</h2>}
       <div className="card-grid">
         {data?.map(
           productData => 
@@ -34,7 +28,7 @@ function App() {
             price={productData.price}
           />)}
         {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} />}
-        <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>
+        {token[0] && type[0] === 'admin' && <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>}
       </div>
     </div>
   )

@@ -54,7 +54,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.btn-login {
+.btn-login, .btn-logout {
   background-color: #0275d8;
   color: white;
   font-weight: bold;
@@ -65,7 +65,7 @@ button:focus-visible {
   transition: all 0.1s linear 0.1s;
 }
 
-.btn-login:hover {
+.btn-login:hover, .btn-logout:hover {
   background-color: #01579b;
 }
 
