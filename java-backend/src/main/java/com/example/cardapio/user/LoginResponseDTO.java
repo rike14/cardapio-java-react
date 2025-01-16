@@ -1,4 +1,4 @@
 package com.example.cardapio.user;
 
-public record LoginResponseDTO(String token) {
+public record LoginResponseDTO(String token, String role) {
 }
