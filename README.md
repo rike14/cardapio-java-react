@@ -197,7 +197,7 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Modal to insert a product:
   
-  <img src="./.github/images-frontend/register.png" alt="register-product" width="100%"/>
+  <img src="./.github/images-frontend/modal-register-product.png" alt="register-product" width="100%"/>
 
 - [x] Toast notification success:
   
@@ -206,6 +206,10 @@ To get a local copy up and running follow these simple example steps.
 - [x] Toast notification error:
   
   <img src="./.github/images-frontend/error-toast.png" alt="error-toast" width="100%"/>
+
+- [x] Login page:
+  
+  <img src="./.github/images-frontend/login.png" alt="login" width="100%"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
