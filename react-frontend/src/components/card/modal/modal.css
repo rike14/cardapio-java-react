@@ -22,7 +22,7 @@
     border-radius: 24px;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -37,7 +37,7 @@
 }
 
 .modal-overlay .modal-body input {
-    padding: 12px;
+    padding: 12px 0px;
     border: 2px solid #c6c5c5c5;
     background-color: white;
     color: rgba(0, 0, 0, 0.9);
@@ -56,9 +56,8 @@
     font-size: 18px;
 }
 
-.modal-overlay .modal-body .btn-secondary {
-    position: initial;
-    width: 100%;
+.modal-overlay .modal-body .btn-primary {
+    width: 95%;
     margin-top: 24px;
     background-color: #0275d8;
     color: white;
@@ -73,12 +72,12 @@
     position: fixed;
     transition: all 0.1s linear 0.1s;
     position: relative;
-    left: 90%;
+    left: 40%;
     font-size: 12px;
     cursor: pointer;
 }
 
-.modal-overlay .modal-body .btn-secondary:hover {
+.modal-overlay .modal-body .btn-primary:hover {
     background-color: #3a44f8;
     transform: scale(1.02);
 }
@@ -89,8 +88,31 @@
     transform: scale(1.2);
 }
 
+.img-logo {
+    width: 200px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
 @media (max-width: 768px) {
+    .modal-overlay .modal-body h2 {
+        font-size: 24px;
+    }
+    .modal-overlay .modal-body.input-container {
+        width: 100%;
+    }
+    .modal-overlay .modal-body input {
+        font-size: 16px;
+        padding: 8px 0px;
+        border-radius: 8px;
+    }
+    .modal-overlay .modal-body label, h2 {
+        font-size: 16px;
+    }
+    .modal-overlay.modal-body.btn-primary {
+        font-size: 14px;
+    }
     .modal-overlay .modal-body .btn-close-modal {
-        left: 80%;
+        left: 30%;
     }
 }
