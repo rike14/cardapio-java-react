@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaLock, FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Login } from '../../services/authService';
@@ -9,19 +10,19 @@ export function LoginIn() {
     const [isLoading, setIsLoading] = useState(false);
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [role, setRole] = useState(localStorage.getItem('role'));
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); 
+    const handleLogin = async (e) => {
+        e.preventDefault();
         setIsLoading(true);
         try {
-            const login = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (!login || !password) { 
+        
+            if (!email || !password) { 
                 toast.error('Please enter both username and password');
                 return;
             }
-            const response = await Login(login, password);
+            const response = await Login(email, password);
             setToken(response.token);
             setRole(response.role);
 
@@ -40,23 +41,33 @@ export function LoginIn() {
     useEffect(() => {
         if (isLoading) return;
         if(token && role) {
+            location.reload();
             navigation('/')
         }
     }, [token, role]);
 
     return (
         <div className="container">
-            <h1>Sign in</h1>
-            <form className="form" action="/login" method="post">
+            <form className="form" onSubmit={handleLogin}>
+                <div className="div-header">
+                    <h1>Sign in</h1>
+                    <img src="/public/logo.png" className="logo-img"/>
+                </div>
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input type="text" id="username" name="username" />
+                    <label htmlFor="email">E-mail</label>
+                    <div className="input-group">
+                        <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)}/>
+                        <FaUser />
+                    </div>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" />
+                    <div className="input-group">
+                        <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                        <FaLock />
+                    </div>
+                <button className="btn-login" disabled={isLoading}>{isLoading ? 'Loading...' : 'Login'}</button>
                 </div>
-                <button className="btn-login" disabled={isLoading} onClick={(e) => handleSubmit(e)}>Login</button>
             </form>
         </div>
     )
