@@ -18,31 +18,31 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class User implements UserDetails {
+public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String login;
+    private String email;
 
     private String password;
 
     private UserRole role;
 
-    public User(String login, String password, UserRole role){
-        this.login = login;
+    public User(String email, String password, UserRole role){
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.role == UserRole.ADMIN ? List.of(new SimpleGrantedAuthority("ROLE_ADMIN")) : List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of();
     }
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override
@@ -63,5 +63,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
