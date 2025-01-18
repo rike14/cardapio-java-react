@@ -117,11 +117,11 @@ To get a local copy up and running follow these simple example steps.
 
     Now, inside IntelliJ, we will install the dependencies with Maven
 
-     <img width="100%" src="./.github/images-backend/package-maven.png">
+     <img width="500px" src="./.github/images-backend/package-maven.png">
 
     And finally, enter the `CardapioApllication` class file to run the project.
 
-     <img width="100%" src="./.github/images-backend/play-backend.png">
+     <img width="500px" src="./.github/images-backend/play-backend.png">
 
     <br>
 
@@ -129,27 +129,27 @@ To get a local copy up and running follow these simple example steps.
     
   * Pgadmin login
 
-    <img width="100%" src="./.github/images-backend/pgadmin-login.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-login.png">
 
   * Pgadmin database
 
-    <img width="100%" src="./.github/images-backend/pgadmin-painel.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-painel.png">
   
   * Pgadmin steps to create connection with database
   
-    <img width="100%" src="./.github/images-backend/pgadmin-db-1.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-db-1.png">
 
     <br>
     
-    <img width="100%" src="./.github/images-backend/pgadmin-db-2.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-db-2.png">
 
     <br>
 
-    <img width="100%" src="./.github/images-backend/pgadmin-db-3.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-db-3.png">
 
     <br>
 
-    <img width="100%" src="./.github/images-backend/pgadmin-db-4.png">
+    <img width="500px" src="./.github/images-backend/pgadmin-db-4.png">
 
     
   
@@ -194,23 +194,23 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Home page where do you see and open modal to insert a product:
   
-  <img src="./.github/images-frontend/home.png" alt="home" width="100%"/>
+  <img src="./.github/images-frontend/home.png" alt="home" width="500px"/>
 
 - [x] Modal to insert a product:
   
-  <img src="./.github/images-frontend/modal-register-product.png" alt="register-product" width="100%"/>
+  <img src="./.github/images-frontend/modal-register-product.png" alt="register-product" width="500px" />
 
 - [x] Toast notification success:
   
-  <img src="./.github/images-frontend/home-register.png" alt="home-register" width="100%"/>
+  <img src="./.github/images-frontend/home-register.png" alt="home-register" width="500px"/>
 
 - [x] Toast notification error:
   
-  <img src="./.github/images-frontend/error-toast.png" alt="error-toast" width="100%"/>
+  <img src="./.github/images-frontend/error-toast.png" alt="error-toast" width="500px" />
 
 - [x] Login page:
   
-  <img src="./.github/images-frontend/login.png" alt="login" width="100%"/>
+  <img src="./.github/images-frontend/login.png" alt="login" width="500px"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
