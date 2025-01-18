@@ -8,7 +8,7 @@ export function App() {
   const { data } = useProductData();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const token = useState(localStorage.getItem('token'));
-  const type = useState(localStorage.getItem('type'));
+  const role = useState(localStorage.getItem('role'));
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev);
@@ -28,7 +28,7 @@ export function App() {
             price={productData.price}
           />)}
         {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} />}
-        {token[0] && type[0] === 'admin' && <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>}
+        {token[0] && role[0] === 'admin' && <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>}
       </div>
     </div>
   )
