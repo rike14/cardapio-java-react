@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')!).render(
             autoClose={5000}
             newestOnTop={false}
             pauseOnFocusLoss={false}
-            pauseOnHover
+            pauseOnHover={false}
             theme="dark"
           />
           <Routes>
