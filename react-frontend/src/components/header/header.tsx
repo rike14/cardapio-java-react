@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import './header.css';
 
 export interface HeaderProps {
@@ -8,6 +7,7 @@ export interface HeaderProps {
 }
 
 export function Header() {
+    const { state } = useLocation();
     const navigation = useNavigate()
     const { pathname } = useLocation()
     const [signed, setSigned] = useState(localStorage.getItem('token') ? true : false);
@@ -16,17 +16,17 @@ export function Header() {
         if (localStorage.getItem('token')) {
             setSigned(true);
         }
-    }, [])
+    }, [signed, state])
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('role');
         setSigned(false);
-        toast.success('Logged out')
-        navigation('/');
+        navigation('/', { state: ''});
+        navigation(0)
     }
 
-    const button = signed ? 
+    const button = state === 'active' ? 
         
         <button className="btn-logout" onClick={handleLogout}>Logout</button>
         

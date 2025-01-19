@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaLock, FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -30,6 +30,7 @@ export function LoginIn() {
             localStorage.setItem('token', response.token);
             localStorage.setItem('role', response.role);
             toast.success('Logged in successfully');
+            navigation('/', { state: 'active' });
 
         } catch (error) {
             toast.error('Username or password incorrect!');
@@ -38,14 +39,6 @@ export function LoginIn() {
             setIsLoading(false);
         }
     }
-
-    useEffect(() => {
-        if (isLoading) return;
-        if(token && role) {
-            location.reload();
-            navigation('/')
-        }
-    }, [token, role]);
 
     return (
         <div className="container container-login">
