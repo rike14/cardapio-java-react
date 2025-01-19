@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Button } from './components/button/button';
 import { Card } from './components/card/card';
 import { Modal } from './components/card/modal/modal';
 import { useProductData } from './hooks/useProductData';
@@ -7,12 +8,22 @@ import { useProductData } from './hooks/useProductData';
 export function App() {
   const { data } = useProductData();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const token = useState(localStorage.getItem('token'));
-  const role = useState(localStorage.getItem('role'));
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
+  const [role, setRole] = useState(localStorage.getItem('role') || '');
+  const [showButton, setShowButton] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev);
   }
+
+  useEffect(() => {
+    setShowButton(false);
+    if(!token && !role) return;
+    setToken(token)
+    setRole(role)
+    if(role === 'admin') setShowButton(true)
+    
+  }, [token, role, showButton]);
 
   return (
     <div className="container">
@@ -28,7 +39,7 @@ export function App() {
             price={productData.price}
           />)}
         {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} />}
-        {token[0] && role[0] === 'admin' && <button className='btn-open-modal' onClick={handleOpenModal}>New product</button>}
+        <Button className={'btn-open-modal'} onClick={handleOpenModal} userState={showButton} title={'New Product'} />
       </div>
     </div>
   )

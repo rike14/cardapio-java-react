@@ -14,22 +14,6 @@
     gap: 16px;
 }
 
-.container .btn-open-modal {
-    background-color: #0275d8;
-    color: white;
-    font-weight: bold;
-    position: fixed;
-    bottom: 16px;
-    right: 24px;
-    transition: all 0.1s linear 0.1s;
-}
-
-.container .btn-open-modal:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
-    background-color: #3a44f8;
-    transform: scale(1.1);
-}
-
 @media (max-width: 768px) {
     .card-grid {
         grid-template-columns: 1fr;

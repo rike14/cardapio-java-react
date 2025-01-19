@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useProductDataMutate } from "../../../hooks/useProductDataMutate";
 import { ProductData } from "../../../interface/ProductData";
 
+import { Button } from "../../button/button";
 import "./modal.css";
 
 interface InputProps {
@@ -94,9 +95,7 @@ export function Modal({ closeModal }: ModalProps) {
                     <Input label="Image URL" value={image} onChange={setImage} />
                     <Input label="Price" value={price} onChange={setPrice} />
                 </form>
-                <button onClick={submit} disabled={isPending} className="btn-primary">
-                    {isLoading ? 'Saving...' : 'Save'}
-                </button>
+                <Button onClick={submit} disabled={isPending} className={'btn-primary'} title={isLoading ? 'Saving...' : 'Save'} userState={true}></Button>
             </div>
         </div>
     );
