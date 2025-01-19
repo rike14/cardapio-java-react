@@ -3,6 +3,7 @@ import { FaLock, FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Login } from '../../services/authService';
+
 import './login.css';
 
 export function LoginIn() {
@@ -47,7 +48,7 @@ export function LoginIn() {
     }, [token, role]);
 
     return (
-        <div className="container">
+        <div className="container container-login">
             <form className="form" onSubmit={handleLogin}>
                 <div className="div-header">
                     <h1>Sign in</h1>
