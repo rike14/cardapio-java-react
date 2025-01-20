@@ -31,16 +31,16 @@
 ## <h2 id="about">📃 About The Project </h2>
 
 - Digital Menu home page;
-- Add a new product only if you logged admin;
+- Add a new product only if you logged as admin;
 - Notifications using Toasty;
 - Database running in container with Docker.
 - Login;
-- User only read information if not logged in;
+- User only read information if not logged in as admin;
 
 ## Next steps to do in the project:
 
-- Edit existing product information if the user is logged in;
-- Delete existing product if the user is logged in;
+- Edit existing product information if the user is logged in as admin;
+- Delete existing product if the user is logged in as admin;
 - Loading.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
