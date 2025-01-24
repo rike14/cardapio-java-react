@@ -31,16 +31,16 @@
 ## <h2 id="about">📃 About The Project </h2>
 
 - Digital Menu home page;
-- Add a new product only if you logged as admin;
+- Add a new product only if you logged as 'admin';
 - Notifications using Toasty;
-- Database running in container with Docker.
+- Backend running in container with Docker.
 - Login;
 - User only read information if not logged in as admin;
 
 ## Next steps to do in the project:
 
-- Edit existing product information if the user is logged in as admin;
-- Delete existing product if the user is logged in as admin;
+- Edit existing product information if the user is logged in as 'admin';
+- Delete existing product if the user is logged in as 'admin';
 - Loading.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -104,28 +104,24 @@ To get a local copy up and running follow these simple example steps.
       # after run the command docker compose up, then only run the command below to start container
       docker compose start
 
-      # to access adminer on http:localhost:8081 with email and password do you set on docker-compose.yml
+      # to access Pgadmin on http:localhost:8081 with email and password do you set on docker-compose.yml
       # POSTGRES_USER: postgres
       # POSTGRES_PASSWORD: master
-      # POSTGRES_DB: menu
+      # POSTGRES_DB: postgres
       
       # then you register a server name what you want, on the tab 'Connection' do you need put on 'Host name/address': db then save like image below
+
+      
+      ----------------------------------------------------------------
+      # remember to create the database before continuing with the name you want in the example I used "menu"
+      ----------------------------------------------------------------
 
       # command stop de container if you needed
       docker compose stop
     ```
 
-    Now, inside IntelliJ, we will install the dependencies with Maven
 
-     <img width="500px" src="./.github/images-backend/package-maven.png">
-
-    And finally, enter the `CardapioApllication` class file to run the project.
-
-     <img width="500px" src="./.github/images-backend/play-backend.png">
-
-    <br>
-
-  *After running the backend, the product table is created automatically if it doesn't exist. You can see it in Pgadmin Painel as shown in the image below.*
+  *After running the backend on second time, the table's is created automatically if it doesn't exist, because first time you don't have a database created. You can see it in Pgadmin Painel as shown in the image below.*
     
   * Pgadmin login
 
@@ -151,7 +147,17 @@ To get a local copy up and running follow these simple example steps.
 
     <img width="500px" src="./.github/images-backend/pgadmin-db-4.png">
 
-    
+
+  Now, inside IntelliJ, we will install the dependencies with Maven
+
+  <img width="500px" src="./.github/images-backend/maven-clean-install.png">
+
+  <img width="500px" src="./.github/images-backend/package-maven.png">
+
+  And finally you can see the backend running in the http://localhost:8080/product .
+
+  <img width="500px" src="./.github/images-backend/locahost-get-product.png">
+
   
 <br>
 

@@ -3,6 +3,24 @@ version: '3.9'
 
 services:
 
+  app:
+    image: 'menu'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=$MENU_DATABASE_USER
+      - POSTGRES_PASSWORD=$MENU_DATABASE_PASSWORD
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/$MENU_DATABASE_NAME
+      - SPRING_DATASOURCE_USERNAME=$MENU_USERNAME
+      - SPRING_DATASOURCE_PASSWORD=$MENU_PASSWORD
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+    ports:
+      - "$LOCAL_PORT:8080"
+
   db:
     image: postgres:16-alpine3.21
     restart: always
