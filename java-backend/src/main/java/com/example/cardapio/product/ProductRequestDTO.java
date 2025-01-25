@@ -1,4 +1,4 @@
 package com.example.cardapio.product;
 
-public record ProductRequestDTO(Long id, String title, String image, Integer price) {
+public record ProductRequestDTO(String title, String image, Integer price) {
 }

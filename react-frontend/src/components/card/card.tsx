@@ -24,9 +24,8 @@ export function Card({id, title, image, price}: CardProps) {
             throw new Error('Unauthorized');
         }
 
-        const response = await api.delete("/product", {
-            headers: headers.headers, 
-            data: {id} 
+        const response = await api.delete(`/product/${id}`, {
+            headers: headers.headers
         })
         
         if (response.status !== 200) {

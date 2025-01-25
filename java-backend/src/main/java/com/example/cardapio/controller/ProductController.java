@@ -28,9 +28,10 @@ public class ProductController {
         return repository.findAll().stream().map(ProductResponseDTO::new).toList();
     }
 
-    @DeleteMapping
-    public void deleteProduct(@RequestBody ProductRequestDTO data){
-        if(data.id() == null) return;
-        repository.deleteById(data.id());
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        if(id == null) return;
+        repository.deleteById(id);
+        return;
     }
 }
