@@ -34,6 +34,7 @@ export function App() {
           productData => 
           <Card 
             key={productData.id}
+            id={productData.id ?? 0}
             title={productData.title}
             image={productData.image}
             price={productData.price}

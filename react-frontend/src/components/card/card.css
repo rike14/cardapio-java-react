@@ -27,3 +27,18 @@
     text-align: center;
     color: white;
 }
+
+.card .delete-product {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 9;
+    color: red;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 18px;
+    transition: transform 0.3s;
+    &:hover { 
+        transform: scale(1.2);
+    }
+}
