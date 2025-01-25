@@ -18,7 +18,7 @@ public class Product {
 
     private String image;
 
-    private Integer price;
+    private Double price;
 
     public Product(ProductRequestDTO data){
         this.title = data.title();
