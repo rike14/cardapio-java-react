@@ -13,14 +13,14 @@ export function Header() {
     const [signed, setSigned] = useState(localStorage.getItem('token') ? true : false);
 
     useEffect(() => {
+        alert(localStorage.getItem('token'))
         if (localStorage.getItem('token')) {
             setSigned(true);
         }
     }, [signed, state])
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('role');
+        localStorage.clear()
         setSigned(false);
         navigation('/', { state: ''});
         navigation(0)
