@@ -1,10 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios, { AxiosPromise } from 'axios';
+import { AxiosPromise } from 'axios';
 import { toast } from 'react-toastify';
 import { ProductData } from '../interface/ProductData';
+import { api } from '../services/app';
 import { BearerToken } from '../services/bearerTokenService';
-
-const API_URL= import.meta.env.VITE_API_BASE_URL
 
 const postData = async (data: ProductData): AxiosPromise<any> => {
     const headers = BearerToken();
@@ -13,7 +12,7 @@ const postData = async (data: ProductData): AxiosPromise<any> => {
         throw new Error('Unauthorized');
     }
 
-    const response = await axios.post(`${API_URL}/product`, data, headers);
+    const response = await api.post(`product`, data, headers);
     return response;
 }
 export function useProductDataMutate(){

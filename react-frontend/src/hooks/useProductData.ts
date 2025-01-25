@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import axios, { AxiosPromise } from 'axios';
+import { AxiosPromise } from 'axios';
 import { ProductData } from '../interface/ProductData';
-
-const API_URL= import.meta.env.VITE_API_BASE_URL
+import { api } from '../services/app';
 
 const fetchData = async (): AxiosPromise<ProductData[]> => { 
-    const response = await axios.get(`${API_URL}/product`);
+    const response = await api.get(`product`);
     return response;
 }
 export function useProductData(){
