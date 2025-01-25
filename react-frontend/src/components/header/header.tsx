@@ -13,7 +13,6 @@ export function Header() {
     const [signed, setSigned] = useState(localStorage.getItem('token') ? true : false);
 
     useEffect(() => {
-        alert(localStorage.getItem('token'))
         if (localStorage.getItem('token')) {
             setSigned(true);
         }
