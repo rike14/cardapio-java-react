@@ -71,7 +71,6 @@ export function Modal({ closeModal, props }: ModalProps) {
             price: priceFormatted, 
             image
         }
-        console.log(productData)
         mutate(productData)
     }
 
