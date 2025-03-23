@@ -36,12 +36,10 @@
 - Backend running in container with Docker.
 - Login;
 - User only read information if not logged in as admin;
-
-## Next steps to do in the project:
-
 - Edit existing product information if the user is logged in as 'admin';
 - Delete existing product if the user is logged in as 'admin';
 - Loading.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
