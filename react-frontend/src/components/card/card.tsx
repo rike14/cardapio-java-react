@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaPencil, FaX } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../../services/app';
 import { BearerToken } from '../../services/bearerTokenService';
+import { Loading } from '../loading/loading';
 import './card.css';
 import { Modal } from './modal/modal';
 
@@ -21,8 +22,10 @@ export function Card({id, title, image, price}: CardProps) {
     const [role] = useState(localStorage.getItem('role') || '');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [product, setProduct] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     async function handleDeleteProduct(id: number) {
+        setIsLoading(true);
         const headers = BearerToken()
 
         if (!headers) {
@@ -44,6 +47,7 @@ export function Card({id, title, image, price}: CardProps) {
     }
 
     async function handleEditProduct(id: number) {
+        setIsLoading(true);
         const headers = BearerToken()
         if (!headers) {
             throw new Error('Unauthorized');
@@ -57,11 +61,15 @@ export function Card({id, title, image, price}: CardProps) {
             toast.error('Error fetching product');
             return false;
         }
-        
+
         setProduct(response.data);
         setIsModalOpen(true);
         
     }
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, [isModalOpen, product])
 
     return (
         <>
@@ -82,6 +90,7 @@ export function Card({id, title, image, price}: CardProps) {
                 </b></p>
             </div>
             {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} props={product ?? []} />}
+            {isLoading && <Loading />}
         </>
     )
 }

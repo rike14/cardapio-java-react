@@ -5,6 +5,7 @@ import { useProductDataMutate } from "../../../hooks/useProductDataMutate";
 import { ProductData } from "../../../interface/ProductData";
 
 import { Button } from "../../button/button";
+import { Loading } from "../../loading/loading";
 import "./modal.css";
 
 interface InputProps {
@@ -96,6 +97,7 @@ export function Modal({ closeModal, props }: ModalProps) {
                 </form>
                 <Button onClick={submit} disabled={isPending} className={'btn-primary'} title={isLoading ? 'Saving...' : 'Save'} userState={true}></Button>
             </div>
+        {isLoading && <Loading />}
         </div>
     );
 };
