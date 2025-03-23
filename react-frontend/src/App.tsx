@@ -39,7 +39,7 @@ export function App() {
             image={productData.image}
             price={productData.price}
           />)}
-        {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} />}
+        {isModalOpen && <Modal closeModal={() => setIsModalOpen(false)} props={[]} />}
         <Button className={'btn-open-modal'} onClick={handleOpenModal} userState={showButton} title={'New Product'} />
       </div>
     </div>

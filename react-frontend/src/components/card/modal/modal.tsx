@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import IntlCurrencyInput from "react-intl-currency-input";
 import { toast } from "react-toastify";
 import { useProductDataMutate } from "../../../hooks/useProductDataMutate";
 import { ProductData } from "../../../interface/ProductData";
@@ -15,43 +14,40 @@ interface InputProps {
 }
 
 interface ModalProps {
-    closeModal(): void
+    closeModal(): void,
+    props: Array<{
+        id?: number;
+        title?: string;
+        image?: string;
+        price?: number;
+    }>
 }
 
-const currencyConfig = {
-  locale: "EN-US",
-  formats: {
-    number: {
-      USD: {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 2,
-      },
-    },
-  },
-};
+const handlePrice = (price: string) => {
+    if(!price) return ''
+    const priceNumber = parseFloat(price.replace(/\D/g, '')) / 100
+    return priceNumber.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+}
 
 const Input = ({label, value, onChange}: InputProps) => {
        return (
         <div>
             <label>{label}</label>
             {label === "Price" ?
-                <IntlCurrencyInput
-                    onChange={e => onChange(e.target.value)}
-                    config={currencyConfig}
-                    currency="USD"
+                <input
+                    onChange={e => onChange(handlePrice(e.target.value))}
+                    value={value}
                 /> :
                 <input value={value} onChange={e => onChange(e.target.value)} />
             }
         </div>
-    );
+    )
 }
 
-export function Modal({ closeModal }: ModalProps) {
-    const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
-    const [price, setPrice] = useState('');
+export function Modal({ closeModal, props }: ModalProps) {
+    const [title, setTitle] = useState(props[0]?.title || '');
+    const [image, setImage] = useState(props[0]?.image || '');
+    const [price, setPrice] = useState(handlePrice(props[0]?.price?.toFixed(2) || '') || '');
     const { mutate, isSuccess, isPending } = useProductDataMutate();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -64,18 +60,19 @@ export function Modal({ closeModal }: ModalProps) {
             return
         }
 
-        const priceFormatted = parseFloat(price
+        const priceFormatted = parseFloat(price.toString()
             .replace(/[^0-9]/g, '')
             .replace(/(\d{2})$/, '.$1'))
 
 
         const productData: ProductData = {
+            id: props[0]?.id,
             title, 
             price: priceFormatted, 
             image
         }
+        console.log(productData)
         mutate(productData)
-        
     }
 
     useEffect(() => {
@@ -85,7 +82,7 @@ export function Modal({ closeModal }: ModalProps) {
             return
         }
         closeModal();
-    }, [isSuccess, closeModal, isPending])
+    }, [isSuccess, closeModal, isPending, price])
 
     return (
         <div className="modal-overlay">

@@ -12,6 +12,11 @@ const postData = async (data: ProductData): AxiosPromise<any> => {
         throw new Error('Unauthorized');
     }
 
+    if(data.id) {
+        const response = await api.put(`/product/${data.id}`, data, headers);
+        return response;
+    }
+
     const response = await api.post(`product`, data, headers);
     return response;
 }
