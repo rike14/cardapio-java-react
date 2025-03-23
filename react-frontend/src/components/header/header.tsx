@@ -7,7 +7,6 @@ export interface HeaderProps {
 }
 
 export function Header() {
-    const { state } = useLocation();
     const navigation = useNavigate()
     const { pathname } = useLocation()
     const [signed, setSigned] = useState(localStorage.getItem('token') ? true : false);
@@ -16,7 +15,7 @@ export function Header() {
         if (localStorage.getItem('token')) {
             setSigned(true);
         }
-    }, [signed, state])
+    }, [signed])
 
     const handleLogout = () => {
         localStorage.clear()
@@ -25,7 +24,7 @@ export function Header() {
         navigation(0)
     }
 
-    const button = state === 'active' ? 
+    const button = signed ? 
         
         <button className="btn-logout" onClick={handleLogout}>Logout</button>
         
@@ -40,8 +39,7 @@ export function Header() {
             <Link to="/">
                  <button className="btn-login">Home</button>
             </Link>
-            {pathname == '/login' ? '' :
-            button }
+            {pathname != '/login' && button }
         </div>
     )
 }

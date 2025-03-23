@@ -25,7 +25,7 @@ const currencyConfig = {
       USD: {
         style: "currency",
         currency: "USD",
-        minimumFractionDigits: 2,
+        minimumFractionDigits: 0,
         maximumFractionDigits: 2,
       },
     },
@@ -64,7 +64,10 @@ export function Modal({ closeModal }: ModalProps) {
             return
         }
 
-        const priceFormatted = Number(price.replace(/[^0-9]/g, ''))
+        const priceFormatted = parseFloat(price
+            .replace(/[^0-9]/g, '')
+            .replace(/(\d{2})$/, '.$1'))
+
 
         const productData: ProductData = {
             title, 

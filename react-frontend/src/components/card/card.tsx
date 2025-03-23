@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaX } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -16,6 +17,7 @@ interface CardProps {
 
 export function Card({id, title, image, price}: CardProps) {
     const navigation = useNavigate()
+    const [role] = useState(localStorage.getItem('role') || '');
 
     async function handleDeleteProduct(id: number) {
         const headers = BearerToken()
@@ -32,16 +34,25 @@ export function Card({id, title, image, price}: CardProps) {
             toast.error('Error deleting product');
             return false;
         }
-        navigation(0);
-        
+        toast.success('Product deleted successfully');
+        setTimeout(() => {
+            navigation(0)
+        }, 1000)
     }
 
     return (
         <div className="card">
-            <span className="delete-product" onClick={() => handleDeleteProduct(id)}><FaX /></span>
+            {role === 'admin' &&
+                <span className="delete-product" onClick={() => handleDeleteProduct(id)}><FaX /></span>
+            }
             <img src={image} alt={title} />
             <h2>{title}</h2>
-            <p><b>$ {price}</b></p>
+            <p><b>
+                { Number(price).toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                })}
+            </b></p>
         </div>
     )
 }
