@@ -1,4 +1,4 @@
-# Digital Menu (🚧 construction... 🚧)
+# Digital Menu
 <a id="readme-top"></a>
 
 <br />
