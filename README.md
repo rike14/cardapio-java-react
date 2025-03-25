@@ -226,7 +226,9 @@ To get a local copy up and running follow these simple example steps.
 
 - [x] Project preview:
   
-  <video controls src=".github/video/preview.mp4" title="preview"></video>
+  https://github.com/user-attachments/assets/39cd5f0c-316f-4b61-9a44-99dcf093ce34
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
