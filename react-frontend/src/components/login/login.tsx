@@ -35,8 +35,8 @@ export function LoginIn() {
 
         } catch (error) {
             toast.error('Username or password incorrect!');
-            throw new Error('Failed to login: '+ error);
             setIsLoading(false);
+            throw new Error('Failed to login: '+ error);
         } 
     }
 
