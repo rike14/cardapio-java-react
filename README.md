@@ -204,6 +204,10 @@ To get a local copy up and running follow these simple example steps.
   
   <img src="./.github/images-frontend/modal-register-product.png" alt="register-product" width="500px" />
 
+- [x] Edit a product:
+  
+  <img src="./.github/images-frontend/edit-product.png" alt="edit-product" width="500px" />
+
 - [x] Toast notification success:
   
   <img src="./.github/images-frontend/home-register.png" alt="home-register" width="500px"/>
@@ -215,6 +219,14 @@ To get a local copy up and running follow these simple example steps.
 - [x] Login page:
   
   <img src="./.github/images-frontend/login.png" alt="login" width="500px"/>
+
+- [x] Loading:
+  
+  <img src="./.github/images-frontend/loading.png" alt="loading" width="500px"/>
+
+- [x] Project preview:
+  
+  <video controls src=".github/video/preview.mp4" title="preview"></video>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
