@@ -36,10 +36,13 @@ export function Header() {
 
     return (
         <div className="header">
-            <Link to="/">
-                 <button className="btn-login">Home</button>
-            </Link>
-            {pathname != '/login' && button }
+            <img src="public/logo.png" className="img-logo" />
+            <div>
+                <Link to="/">
+                    <button className="btn-login">Home</button>
+                </Link>
+                {pathname != '/login' && button }
+            </div>
         </div>
     )
 }

@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { FaPencil, FaX } from 'react-icons/fa6';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../../services/app';
 import { BearerToken } from '../../services/bearerTokenService';
 import { Loading } from '../loading/loading';
+import { Modal } from '../modal/modal';
 import './card.css';
-import { Modal } from './modal/modal';
 
 interface CardProps {
     id: number;
@@ -18,7 +17,6 @@ interface CardProps {
 
 
 export function Card({id, title, image, price}: CardProps) {
-    const navigation = useNavigate()
     const [role] = useState(localStorage.getItem('role') || '');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [product, setProduct] = useState(null);
@@ -29,27 +27,7 @@ export function Card({id, title, image, price}: CardProps) {
         const headers = BearerToken()
 
         if (!headers) {
-            throw new Error('Unauthorized');
-        }
-
-        const response = await api.delete(`/product/${id}`, {
-            headers: headers.headers
-        })
-        
-        if (response.status !== 200) {
-            toast.error('Error deleting product');
-            return false;
-        }
-        toast.success('Product deleted successfully');
-        setTimeout(() => {
-            navigation(0)
-        }, 1000)
-    }
-
-    async function handleEditProduct(id: number) {
-        setIsLoading(true);
-        const headers = BearerToken()
-        if (!headers) {
+            setIsLoading(false)
             throw new Error('Unauthorized');
         }
 
@@ -61,7 +39,34 @@ export function Card({id, title, image, price}: CardProps) {
             toast.error('Error fetching product');
             return false;
         }
+        
+        if (response.status !== 200) {
+            toast.error('Error deleting product');
+            return false;
+        }
+        
+        response.data[0].status = 'delete';
+        setProduct(response.data);
+        setIsModalOpen(true);
+    }
 
+    async function handleEditProduct(id: number) {
+        setIsLoading(true);
+        const headers = BearerToken()
+        if (!headers) {
+            setIsLoading(false)
+            throw new Error('Unauthorized');
+        }
+
+        const response = await api.get(`/product/${id}`, {
+            headers: headers.headers
+        })
+
+        if (response.status !== 200) {
+            toast.error('Error fetching product');
+            return false;
+        }
+        response.data[0].status = 'edit';
         setProduct(response.data);
         setIsModalOpen(true);
         

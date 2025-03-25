@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { Button } from './components/button/button';
 import { Card } from './components/card/card';
-import { Modal } from './components/card/modal/modal';
+import { Modal } from './components/modal/modal';
 import { useProductData } from './hooks/useProductData';
 
 export function App() {
@@ -28,7 +28,7 @@ export function App() {
   return (
     <div className="container">
       <h1>Digital Menu</h1>
-      {data?.length === 0 && <h2>No products available</h2>}
+      {!data?.length && <h2>No products available</h2>}
       <div className="card-grid">
         {data?.map(
           productData => 

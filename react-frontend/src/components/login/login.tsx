@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Login } from '../../services/authService';
 
+import { Loading } from '../loading/loading';
 import './login.css';
 
 export function LoginIn() {
     const navigation = useNavigate()
     const [isLoading, setIsLoading] = useState(false);
-    const [token, setToken] = useState(localStorage.getItem('token'));
-    const [role, setRole] = useState(localStorage.getItem('role'));
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,20 +23,21 @@ export function LoginIn() {
                 return;
             }
             const response = await Login(email, password);
-            setToken(response.token);
-            setRole(response.role);
-
+            
             localStorage.setItem('token', response.token);
             localStorage.setItem('role', response.role);
+
             toast.success('Logged in successfully');
-            navigation('/', { state: 'active' });
+            setTimeout(() => {
+                navigation('/')
+                navigation(0)
+            }, 1000)
 
         } catch (error) {
             toast.error('Username or password incorrect!');
             throw new Error('Failed to login: '+ error);
-        } finally {
             setIsLoading(false);
-        }
+        } 
     }
 
     return (
@@ -62,6 +62,7 @@ export function LoginIn() {
                     </div>
                 <button className="btn-login" disabled={isLoading}>{isLoading ? 'Loading...' : 'Login'}</button>
                 </div>
+            {isLoading && <Loading />}
             </form>
         </div>
     )
