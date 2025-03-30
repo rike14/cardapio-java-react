@@ -196,34 +196,6 @@ To get a local copy up and running follow these simple example steps.
 
 ## <h2 id="project">🚀 Project </h2>
 
-- [x] Home page where do you see and open modal to insert a product:
-  
-  <img src="./.github/images-frontend/home.png" alt="home" width="500px"/>
-
-- [x] Modal to insert a product:
-  
-  <img src="./.github/images-frontend/modal-register-product.png" alt="register-product" width="500px" />
-
-- [x] Edit a product:
-  
-  <img src="./.github/images-frontend/edit-product.png" alt="edit-product" width="500px" />
-
-- [x] Toast notification success:
-  
-  <img src="./.github/images-frontend/home-register.png" alt="home-register" width="500px"/>
-
-- [x] Toast notification error:
-  
-  <img src="./.github/images-frontend/error-toast.png" alt="error-toast" width="500px" />
-
-- [x] Login page:
-  
-  <img src="./.github/images-frontend/login.png" alt="login" width="500px"/>
-
-- [x] Loading:
-  
-  <img src="./.github/images-frontend/loading.png" alt="loading" width="500px"/>
-
 - [x] Project preview:
   
   https://github.com/user-attachments/assets/39cd5f0c-316f-4b61-9a44-99dcf093ce34
