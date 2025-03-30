@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "product")
-@Entity(name = "product")
+@Table(name = "products")
+@Entity(name = "products")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

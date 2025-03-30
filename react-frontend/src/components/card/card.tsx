@@ -31,7 +31,7 @@ export function Card({id, title, image, price}: CardProps) {
             throw new Error('Unauthorized');
         }
 
-        const response = await api.get(`/product/${id}`, {
+        const response = await api.get(`/products/${id}`, {
             headers: headers.headers
         })
 
@@ -58,7 +58,7 @@ export function Card({id, title, image, price}: CardProps) {
             throw new Error('Unauthorized');
         }
 
-        const response = await api.get(`/product/${id}`, {
+        const response = await api.get(`/products/${id}`, {
             headers: headers.headers
         })
 

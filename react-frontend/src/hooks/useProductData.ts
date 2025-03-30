@@ -4,7 +4,7 @@ import { ProductData } from '../interface/ProductData';
 import { api } from '../services/app';
 
 const fetchData = async (): AxiosPromise<ProductData[]> => { 
-    const response = await api.get(`product`);
+    const response = await api.get(`products`);
     return response;
 }
 export function useProductData(){

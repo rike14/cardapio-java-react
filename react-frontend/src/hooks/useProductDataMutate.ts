@@ -13,11 +13,11 @@ const postData = async (data: ProductData): AxiosPromise<any> => {
     }
 
     if(data.id) {
-        const response = await api.put(`/product/${data.id}`, data, headers);
+        const response = await api.put(`/products/${data.id}`, data, headers);
         return response;
     }
 
-    const response = await api.post(`product`, data, headers);
+    const response = await api.post(`products`, data, headers);
     return response;
 }
 export function useProductDataMutate(){

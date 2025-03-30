@@ -18,7 +18,7 @@ import com.example.cardapio.product.ProductRequestDTO;
 import com.example.cardapio.product.ProductResponseDTO;
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("products")
 public class ProductController {
 
     @Autowired

@@ -70,7 +70,7 @@ export function Modal({ closeModal, props }: ModalProps) {
             if (!headers) {
                 throw new Error('Unauthorized');
             }
-            const response = await api.delete(`/product/${props[0]?.id}`, {
+            const response = await api.delete(`/products/${props[0]?.id}`, {
                 headers: headers.headers
             })
             if(response.status !== 200) {
