@@ -119,7 +119,7 @@ export function Modal({ closeModal, props }: ModalProps) {
             <div className="modal-overlay">
             <div className="modal-body">
                 <button onClick={closeModal} className="btn-close-modal">Close</button>
-                <img src="public/logo.png" className="img-logo" />
+                <img src="/logo.png" className="img-logo" />
                 <h2 className="modal-title">Are you sure delete this product?</h2>
                 <form className="input-container">
                     <img src={image} alt={title}  />
@@ -136,7 +136,7 @@ export function Modal({ closeModal, props }: ModalProps) {
         <div className="modal-overlay">
             <div className="modal-body">
                 <button onClick={closeModal} className="btn-close-modal">Close</button>
-                <img src="public/logo.png" className="img-logo" />
+                <img src="/logo.png" className="img-logo" />
                 <h2 className="modal-title">{product === 'edit' ? `Edit Product ${props[0].title} ` : 'Register a new product'}</h2>
                 <form className="input-container">
                     <Input label="Title" value={title} onChange={setTitle} disabled={false} />

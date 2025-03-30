@@ -45,7 +45,7 @@ export function LoginIn() {
             <form className="form" onSubmit={handleLogin}>
                 <div className="div-header">
                     <h1>Sign in</h1>
-                    <img src="/public/logo.png" className="logo-img"/>
+                    <img src="/logo.png" className="logo-img"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">E-mail</label>

@@ -36,7 +36,7 @@ export function Header() {
 
     return (
         <div className="header">
-            <img src="public/logo.png" className="img-logo" />
+            <img src="/logo.png" className="img-logo" />
             <div>
                 <Link to="/">
                     <button className="btn-login">Home</button>
