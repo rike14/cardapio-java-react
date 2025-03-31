@@ -152,7 +152,7 @@ To get a local copy up and running follow these simple example steps.
 
   <img width="500px" src="./.github/images-backend/package-maven.png">
 
-  And finally you can see the backend running in the http://localhost:8080/product .
+  And finally you can see the backend running in the http://localhost:8080/products .
 
   <img width="500px" src="./.github/images-backend/locahost-get-product.png">
 
@@ -190,6 +190,14 @@ To get a local copy up and running follow these simple example steps.
       yarn dev
 
        # in the terminal see running on the url http://localhost:5173/
+
+       # login as ADMIN:
+       # email: admin@email.com
+       # password: 123456
+
+       # login as USER:
+       # email: user@email.com
+       # password: 123456
       ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
